@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #080b16;
+  }
+
+  body {
+    @apply bg-void font-body text-ghost antialiased overflow-x-hidden;
+  }
+
+  ::selection {
+    background: rgba(0, 217, 255, 0.35);
+    color: #f5f7ff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #00d9ff;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply border border-steel/15 bg-dusk/55 backdrop-blur-md;
+  }
+
+  .holo-card {
+    @apply relative overflow-hidden rounded-2xl border border-steel/15 bg-dusk/55 backdrop-blur-md transition duration-500 ease-out;
+    background-image: linear-gradient(135deg, rgba(0, 217, 255, 0.06), rgba(103, 46, 255, 0.08) 45%, transparent);
+  }
+
+  .holo-card::before {
+    content: '';
+    @apply pointer-events-none absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-cyan/15 to-transparent transition-transform duration-1000 ease-out;
+  }
+
+  .holo-card:hover::before {
+    transform: translateX(120%) skewX(12deg);
+  }
+
+  .holo-card:hover {
+    @apply -translate-y-1 border-cyan/50 shadow-glow;
+  }
+
+  .section-eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.3em] text-cyan;
+  }
+
+  .neon-text {
+    text-shadow: 0 0 14px rgba(0, 217, 255, 0.55);
+  }
+
+  .glitch {
+    @apply relative inline-block;
+  }
+
+  .glitch:hover {
+    animation: glitch 0.4s steps(2) 2;
+  }
+
+  .scanlines {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.04) 0px,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 2px,
+      transparent 4px
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
