@@ -76,7 +76,7 @@ export default function LoadingScreen({ onComplete }) {
             strokeWidth={1.5}
             aria-hidden="true"
           />
-          <h1 className="font-display text-4xl font-black tracking-[0.25em] text-ghost neon-text">NEXUS</h1>
+          <h1 className="font-display text-4xl font-black tracking-[0.25em] text-ghost neon-text">THE DEVELOPER AWAKENS</h1>
         </div>
 
         <div className="w-full space-y-4">
